@@ -1,0 +1,31 @@
+#!/usr/bin/python3
+
+import sys
+from math import sqrt, floor
+
+
+def main():
+    """
+    Factorize a number
+    """
+
+    if (len(sys.argv) != 2):
+        print("Usage: {} file_name".format(sys.argv[0]))
+
+    with open(sys.argv[1], "r") as file:
+
+        for line in file:
+            number = int(line)
+            mid_range = floor(sqrt(number)) + 1
+
+            i = 2
+            while (i <= mid_range):
+                j = 2
+                while (j <= mid_range):
+                    if ((j * i) == number):
+                        print("{}={}*{}".format(number, j, i))
+                    j += 1
+                i += 1
+
+if __name__ == "__main__":
+    main()
